@@ -1,6 +1,6 @@
 # 3D Graphics Renderer in Rust and WebAssembly
 
-A high-performance 3D graphics renderer built with Rust, compiled to WebAssembly, and visualized in the browser using a React and TypeScript frontend. This project explores various rendering techniques, including rasterization and ray tracing, along with interactive scene manipulation.
+A high-performance 3D graphics renderer built with Rust, compiled to WebAssembly, and displayed in the browser using a React and TypeScript frontend. This project explores various rendering techniques, including rasterization and ray tracing, along with interactive scene manipulation.
 
 [**Access the live demo right here in your browser!**](https://elliottf05.github.io/3D-Graphics/)
 
@@ -11,16 +11,16 @@ A high-performance 3D graphics renderer built with Rust, compiled to WebAssembly
 This project's 3D graphics engine, written in Rust and compiled to WebAssembly, offers two distinct rendering methods and several advanced features:
 
 *   **Core Engine & Parallelism:**
-    *   The engine combines a real-time rasterizer with a path-tracing ray tracer. Both rendering pipelines are accelerated using **Rayon for CPU-based multithreading**, speeding up demanding calculations. The core supports dynamic scene changes, including object transforms and material edits, through a web interface.
+    *   The engine combines a real-time rasterizer with a path-tracing ray tracer. Both rendering pipelines are accelerated using Rayon for CPU-based multithreading.
 
 *   **Advanced Ray Tracing Capabilities:**
-    *   Implements a **path tracer with Multiple Importance Sampling (MIS)** for realistic light simulation using direct light sampling via probabilistic Monte Carlo integration to reduce noise. It uses Russian Roulette for efficient path termination.
-    *   Ray intersections are accelerated by a **cache-friendly flattened Bounding Volume Hierarchy (BVH)**, traversed iteratively.
-    *   Supports **physically inspired materials** including dielectrics (glass with Snell's Law refraction and Schlick's Fresnel approximation), metals (configurable roughness), emissives, and a two-layer clear coat. Also realistically models depth of field camera effects.
+    *   Implements a path tracer with for photorealistic light simulation. It uses Multiple Importance Sampling (MIS) with direct light sampling via probabilistic Monte Carlo integration to reduce noise, as well as Russian Roulette path termination.
+    *   Ray intersections are accelerated by a Bounding Volume Hierarchy (BVH). This is represented contiguously in memory as a flattened tree for better cache properties.
+    *   Supports physically inspired materials including dielectrics (glass with Snell's Law refraction and Schlick's Fresnel approximation), metals (configurable roughness), emissives, and a two-layer clear coat. Also realistically models depth of field camera effects.
 
 *   **Real-Time Rasterization Techniques:**
     *   Features a real-time scanline triangle rasterizer with Z-buffering, perspective-correct interpolation, and near-plane clipping.
-    *   Includes **shadow mapping for multiple lights** with basic filtering for softer shadows.
+    *   Includes*shadow mapping for multiple lights with basic filtering for softer shadows.
     *   Applies Phong lighting and a fast screen-space post-processing depth of field effect.
 
 *   **Interactive Scene Editing & Control:**
@@ -29,13 +29,9 @@ This project's 3D graphics engine, written in Rust and compiled to WebAssembly, 
 
 ## Tech Stack
 
-*   **Core Rendering Logic:** Rust
-*   **Parallelism:** Rayon
-*   **Frontend:** TypeScript, React
-*   **UI Components:** Shadcn UI
-*   **Styling:** Tailwind CSS
-*   **Build Tool (Web):** Vite
-*   **Deployment:** GitHub Pages
+*   **Core Logic:** Rust (with Rayon for parallelism)
+*   **Frontend Logic:** TypeScript, React
+*   **UI Components:** Shadcn and Tailwind
 
 ## Gallery
 
@@ -51,7 +47,7 @@ This project's 3D graphics engine, written in Rust and compiled to WebAssembly, 
 ### Prerequisites
 
 *   Rust toolchain, available [here](https://www.rust-lang.org/tools/install)
-*   A specific Rust nightly toolchain: `nightly-2024-08-02`. You can install it via `rustup toolchain install nightly-2024-08-02`.
+*   A specific Rust nightly toolchain: `nightly-2024-08-02`. This can be installed via the terminal command `rustup toolchain install nightly-2024-08-02`.
 *   `wasm-pack`, available [here](https://rustwasm.github.io/wasm-pack/installer/)
 *   Node.js and npm
 
@@ -83,11 +79,11 @@ This project's 3D graphics engine, written in Rust and compiled to WebAssembly, 
     cd web
     npm run dev
     ```
-    This will start the Vite development server, and you can access the application in your browser (usually at `http://localhost:5173`).
+    This will start the Vite dev server, from which you can access the application in your browser (usually at `http://localhost:5173`).
 
 ### Deployment
 
-The project is configured for deployment to GitHub Pages. Pushing to the `main` branch will trigger the GitHub Actions workflow defined in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) to build and deploy the `web/dist` folder.
+The online demo is deployed on GitHub Pages. Specifically, pushing to the `main` branch will trigger the GitHub Actions workflow defined in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) to build and deploy the `web/dist` folder.
 
 ## Future Work (Ideas)
 
@@ -95,4 +91,4 @@ The project is configured for deployment to GitHub Pages. Pushing to the `main` 
 
 ## Acknowledgements
 
-*   Inspired by various resources on computer graphics, including "Ray Tracing in One Weekend" series.
+*   Inspired by various resources on computer graphics, including "Ray Tracing in One Weekend" series, as well as the many hours I've spent playing 3D video games :)
