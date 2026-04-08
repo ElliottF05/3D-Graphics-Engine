@@ -1,6 +1,6 @@
 # 3D Graphics Renderer in Rust and WebAssembly
 
-A high-performance 3D graphics renderer built with Rust, compiled to WebAssembly, and displayed in the browser using a React and TypeScript frontend. This project explores various rendering techniques, including rasterization and ray tracing, along with interactive scene manipulation.
+A multi-threaded CPU-based 3D graphics renderer built with Rust, compiled to WebAssembly, and displayed in the browser using a React and TypeScript frontend. This project explores various rendering techniques, including rasterization and ray tracing, along with interactive scene manipulation.
 
 [**Access the live demo right here in your browser!**](https://elliottf05.github.io/3D-Graphics/)
 
